@@ -40,12 +40,12 @@ export default defineComponent({
 
       <div class="content-box w-100">
         <div class="quantity-controls d-flex align-items-center justify-content-start">
-          <button class="quantity-btn" @click="$emit('update-quantity', -1)">
+          <button class="quantity-btn" @click.stop="$emit('update-quantity', -1)">
             <i class="bi bi-dash"></i>
           </button>
 
           <span class="quantity-value">{{ quantity }}</span>
-          <button class="quantity-btn" @click="$emit('update-quantity', 1)">
+          <button class="quantity-btn" @click.stop="$emit('update-quantity', 1)">
             <i class="bi bi-plus-lg"></i>
           </button>
         </div>

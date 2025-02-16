@@ -63,6 +63,14 @@ export default defineComponent({
         max-width: 100%;
         height: auto;
         object-fit: cover; 
+
+        @media (max-width: 992px){
+          height: 20rem;
+        }
+
+        @media (max-width: 768px){
+          height: 15rem;
+        }
       }
 
     .carousel-control-prev,

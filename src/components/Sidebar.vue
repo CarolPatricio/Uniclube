@@ -202,7 +202,7 @@ export default defineComponent({
     overflow-x: hidden;
 
     .items{
-      max-height: calc(100vh - 300px);  
+      max-height: calc(100vh - 350px);  
       overflow-y: auto; 
       overflow-x: auto; 
       white-space: nowrap; 

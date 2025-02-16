@@ -1,5 +1,5 @@
 <script lang="ts">
-import { defineComponent, ref , watch } from 'vue';
+import { defineComponent } from 'vue';
 
 export default defineComponent({
   name: 'Card',
@@ -17,57 +17,38 @@ export default defineComponent({
       required: true,
     },
     additionalText: {
-        type: String as () => string,
-        required: false,
-        default: undefined
-    },
-    discount: {
-        type: Boolean,
-        required: true,
-    }, 
-    percentage: {
-        type: Number as () => number,
-        required: false,
-        default: 0
-    },
-    installments: {
-        type: String as () => string,
-        required: true,
-    },
-    seller: {
-        type: String as () => string,
-        required: true,
-    },
-    class:{
       type: String as () => string,
       required: false,
-      default: '' 
+      default: undefined
+    },
+    discount: {
+      type: Boolean,
+      required: true,
+    },
+    percentage: {
+      type: Number as () => number,
+      required: false,
+      default: 0
+    },
+    installments: {
+      type: String as () => string,
+      required: true,
+    },
+    seller: {
+      type: String as () => string,
+      required: true,
+    },
+    class: {
+      type: String as () => string,
+      required: false,
+      default: ''
     }
   },
-  setup(props) {
-    const isDefaultHover = ref(props.class.includes('default-hover'));
-
-    const customClass = ref(props.class || '');
-
-    watch(
-      () => props.class || '', 
-      (newValue: string) => {
-        isDefaultHover.value = newValue.includes('default-hover');
-      },
-      { immediate: true }
-    );
-
-    const toggleHover = () => {
-      isDefaultHover.value = !isDefaultHover.value;
-
-      if (isDefaultHover.value) {
-        customClass.value = 'default-hover'; 
-      } else {
-        customClass.value = customClass.value.replace('default-hover', '').trim(); 
-      }
+  data() {
+    return {
+      isDefaultHover: this.class.includes('default-hover'),
+      customClass: this.class || '',
     };
-
-    return { isDefaultHover, toggleHover, customClass };
   },
   computed: {
     imageSrc(): string {
@@ -81,14 +62,31 @@ export default defineComponent({
         const discountedPrice = this.value - (this.value * this.percentage) / 100;
         return `R$ ${discountedPrice.toFixed(2).replace('.', ',')}`;
       }
-      return `R$ ${this.value.toFixed(2).replace('.', ',')}`;
+      return this.formattedValue;
     },
     formattedText(): string {
       return this.installments?.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>') || '';
     }
   },
+  watch: {
+    class(newValue: string) {
+      this.isDefaultHover = newValue.includes('default-hover');
+    }
+  },
+  methods: {
+    toggleHover() {
+      this.isDefaultHover = !this.isDefaultHover;
+
+      if (this.isDefaultHover) {
+        this.customClass = 'default-hover';
+      } else {
+        this.customClass = this.customClass.replace('default-hover', '').trim();
+      }
+    }
+  }
 });
 </script>
+
 <template>
     <div class="card" style="width: 20rem;">
       <div class="content-img">

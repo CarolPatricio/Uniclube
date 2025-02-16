@@ -50,7 +50,7 @@ npm install  # Ou yarn install
 npm run dev  # Ou yarn dev
 ```
 
-Acesse **http://localhost:5173/** para visualizar a aplicação.
+Acesse **https://uniclube-ten.vercel.app/** para visualizar a aplicação.
 
 ---
 

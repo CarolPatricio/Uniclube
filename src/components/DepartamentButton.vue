@@ -44,60 +44,60 @@ $icon-size: 3.5rem;
 .content {
   &-box {
     display: grid;
-    grid-template-rows: 1fr auto;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 1fr;
+    gap: .5rem;
     place-items: center;
     text-align: center;
     align-items: start;
-  }
+    justify-content: flex-start;
+    margin-right: 0.5rem;
 
-  &-departamentButton {
-    background-color: $background-extra-light;
-    width: $content-size;
-    height: $content-size;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background-color 0.3s ease-in-out;
+    .text-button {
+        color: $text-font-primary;
+        font-size: 1.6rem;
+        max-width: 20rem;
+        font-weight: normal;
 
-    img {
-      width: $icon-size;
-      transition: transform 0.2s ease-in-out, filter 0.3s ease-in-out;
-    }
-
-    &.default-hover {
-      background-color: $primary; 
-
-      .text-button {
-        font-weight: bold; 
+        @media (max-width: 768px) {
+          font-size: 1.2rem;
+        }
       }
-
+    }
+    &-departamentButton {
+      background-color: $background-extra-light;
+      width: $content-size;
+      height: $content-size;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.3s ease-in-out;
+  
       img {
-        filter: brightness(0) saturate(100%) invert(1);
+        width: $icon-size;
+        transition: transform 0.2s ease-in-out, filter 0.3s ease-in-out;
       }
-    }
-
-    &:hover {
-      background-color: $primary;
-
-      img {
-        filter: brightness(0) saturate(100%) invert(1);
+  
+      &.default-hover {
+        background-color: $primary; 
+  
+        .text-button {
+          font-weight: bold; 
+        }
+  
+        img {
+          filter: brightness(0) saturate(100%) invert(1);
+        }
       }
-    }
-  }
-
-  &-text {
-    &-button {
-      color: $text-font-primary;
-      font-size: 1.6rem;
-      max-width: 20rem;
-      font-weight: normal;
-
-      @media (max-width: 768px) {
-        font-size: 1.2rem;
-        max-width: 15rem;
+  
+      &:hover {
+        background-color: $primary;
+  
+        img {
+          filter: brightness(0) saturate(100%) invert(1);
+        }
       }
-    }
   }
 }
 

@@ -154,11 +154,17 @@ export default defineComponent({
       grid-template-columns: repeat(10, 1fr);
 
       @media (max-width: 992px) {
-        grid-template-columns: repeat(5, 1fr); 
+        grid-template-columns: repeat(5, 1fr);
+        gap: 1.5rem;
       }
 
       @media (max-width: 768px) {
         grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem;
+      }
+      @media (max-width: 480px) {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
       }
     }
   }
@@ -207,7 +213,7 @@ export default defineComponent({
           grid-template-columns: repeat(4, 1fr);
         }
     
-        @media (max-width: 990px) {
+        @media (max-width: 992px) {
           grid-template-columns: repeat(3, 1fr);
         }
     
