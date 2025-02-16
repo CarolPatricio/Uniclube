@@ -195,14 +195,20 @@ export default defineComponent({
   background-color: $background-light;
   border-top: 8px solid $primary;
 
+  @media(max-width: 399px){
+    width: auto;
+  }
+
   &-content{
     padding: 2rem;
     flex: 1;
     overflow-y: auto; 
     overflow-x: hidden;
+    height: 100vh;
+
 
     .items{
-      max-height: calc(100vh - 350px);  
+      max-height: calc(100vh - 300px);  
       overflow-y: auto; 
       overflow-x: auto; 
       white-space: nowrap; 
